@@ -1,10 +1,10 @@
-import { AnyAction } from 'redux';
+import { UserType } from '../../types';
 
 const initialState = {
   email: '',
 };
 
-const user = (state = initialState, action: AnyAction) => {
+const user = (state = initialState, action: UserType) => {
   switch (action.type) {
     case 'SUBMIT_LOGIN':
       return {
