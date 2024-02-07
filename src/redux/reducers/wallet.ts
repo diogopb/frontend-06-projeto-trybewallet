@@ -1,5 +1,5 @@
 import { CURRENCIES_FAIL, CURRENCIES_REQUEST, CURRENCIES_SUCCESS,
-  REGISTER_EXPENSE }
+  DELETE_EXPENSE, REGISTER_EXPENSE }
   from '../actions';
 import { WalletReducerType } from '../../types';
 
@@ -30,6 +30,12 @@ const wallet = (state = initialState, action: WalletReducerType) => {
       return {
         ...state,
         expenses: [...state.expenses, action.payload],
+      };
+    case DELETE_EXPENSE:
+      return {
+        ...state,
+        expenses: state.expenses.filter((expense: any) => expense.id !== action.payload)
+          || [],
       };
     default:
       return state;
